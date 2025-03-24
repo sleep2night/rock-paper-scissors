@@ -1,4 +1,3 @@
-// console.log("Can you see this? Nice");
 let humanScore = 0;
 let computerScore = 0;
 
@@ -11,7 +10,6 @@ function getHumanChoice(){
     let choice = prompt("Choose either rock, paper, or scissors: ");
     return choice.toLowerCase();
 }
-// console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice){
     // Tie
@@ -55,6 +53,7 @@ function playGame(){
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
+        alert(`Human Score: ${humanScore}\nComputer Score: ${computerScore}`);
     }
 }
 

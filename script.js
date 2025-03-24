@@ -48,7 +48,14 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(){
+    let humanSelection;
+    let computerSelection;
+    for(let i = 0;i<5;i++){
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+}
 
-playRound(humanSelection, computerSelection);
+playGame();

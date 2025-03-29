@@ -46,15 +46,45 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    let humanSelection;
-    let computerSelection;
-    for(let i = 0;i<5;i++){
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        alert(`Human Score: ${humanScore}\nComputer Score: ${computerScore}`);
-    }
+function updateScores(){
+    document.getElementById("humanScore").textContent = `Your Score: ${humanScore}`;
+    document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
 }
+const rockButton = document.querySelector("#rock");
+const scissorsButton = document.querySelector("#scissors");
+const paperButton = document.querySelector("#paper");
 
-playGame();
+rockButton.addEventListener("click", ()=>{
+    console.log("You have selected rock.");
+    let computerSelection = getComputerChoice();
+    console.log(`Computer has selected ${computerSelection}.`);
+    playRound("rock", computerSelection);
+    updateScores();
+});
+scissorsButton.addEventListener("click", ()=>{
+    console.log("You have selected scissors.");
+    let computerSelection = getComputerChoice();
+    console.log(`Computer has selected ${computerSelection}.`);
+    playRound("scissors", computerSelection);
+    updateScores();
+});
+paperButton.addEventListener("click", ()=>{
+    console.log("You have selected paper.");
+    let computerSelection = getComputerChoice();
+    console.log(`Computer has selected ${computerSelection}.`);
+    playRound("paper", computerSelection);
+    updateScores();
+});
+
+// function playGame(){
+    // let humanSelection;
+    // let computerSelection;
+    // humanSelection = getHumanChoice();
+    // computerSelection = getComputerChoice();
+    // playRound(humanSelection, computerSelection);
+    // alert(`Human Score: ${humanScore}\nComputer Score: ${computerScore}`);
+// }
+
+function endGame(){
+
+}

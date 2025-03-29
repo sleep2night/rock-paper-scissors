@@ -1,6 +1,12 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const rockButton = document.querySelector("#rock");
+const scissorsButton = document.querySelector("#scissors");
+const paperButton = document.querySelector("#paper");
+
+const resultContainer = document.querySelector("#result");
+
 function getComputerChoice(){
     const choices = ["rock","paper","scissors"];
     return choices[Math.floor(Math.random()*3)];
@@ -56,28 +62,32 @@ function updateScores(){
     document.getElementById("computerScore").textContent = `Computer Score: ${computerScore}`;
 }
 
-const rockButton = document.querySelector("#rock");
-const scissorsButton = document.querySelector("#scissors");
-const paperButton = document.querySelector("#paper");
+function playerOption(message){
+    document.getElementById("playerOption").textContent = message;
+}
+
+function computerOption(message){
+    document.getElementById("computerOption").textContent = message;
+}
 
 rockButton.addEventListener("click", ()=>{
-    console.log("You have selected rock.");
+    playerOption("You have selected rock.");
     let computerSelection = getComputerChoice();
-    console.log(`Computer has selected ${computerSelection}.`);
+    computerOption(`Computer has selected ${computerSelection}.`);
     playRound("rock", computerSelection);
 });
 
 scissorsButton.addEventListener("click", ()=>{
-    console.log("You have selected scissors.");
+    playerOption("You have selected scissors.");
     let computerSelection = getComputerChoice();
-    console.log(`Computer has selected ${computerSelection}.`);
+    computerOption(`Computer has selected ${computerSelection}.`);
     playRound("scissors", computerSelection);
 });
 
 paperButton.addEventListener("click", ()=>{
-    console.log("You have selected paper.");
+    playerOption("You have selected paper.");
     let computerSelection = getComputerChoice();
-    console.log(`Computer has selected ${computerSelection}.`);
+    computerOption(`Computer has selected ${computerSelection}.`);
     playRound("paper", computerSelection);
 });
 
